@@ -1,4 +1,4 @@
-
+{
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
@@ -8,10 +8,10 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/a.out",
+            "program": "/home/pi/cppPrjs/libcamera-apps/build/libcamera-raw",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/build",
             "environment": [{"name" : "DISPLAY", "value": ":10.0"}],
             "externalConsole": false,
             "MIMode": "gdb",

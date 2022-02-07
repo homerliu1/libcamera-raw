@@ -9,6 +9,8 @@ if (NOT EXISTS ${CMAKE_BINARY_DIR}/CMakeCache.txt)
     endif()
 endif()
 
+# set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "" FORCE)
+
 set (CMAKE_CXX_STANDARD 17)
 
 find_package(PkgConfig REQUIRED)
