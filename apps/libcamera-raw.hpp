@@ -1,8 +1,12 @@
 #pragma once
 #include "core/libcamera_app.hpp"
 #include "core/video_options.hpp"
-
 #include <opencv2/opencv.hpp>
+
+#include <chrono>
+#include <mutex>
+#include <pthread.h>
+#include <atomic>
 
 class LibcameraRaw : public LibcameraApp
 {

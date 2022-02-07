@@ -1,9 +1,4 @@
 
-#include <chrono>
-#include <mutex>
-#include <pthread.h>
-#include <atomic>
-
 #include "libcamera-raw.hpp"
 
 using namespace cv;
