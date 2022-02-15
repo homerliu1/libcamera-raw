@@ -1,27 +1,28 @@
 
 #include "libcamera-raw.hpp"
-
 using namespace cv;
+
 int main(int argc, char *argv[])
 {
 	try
 	{
 		Mat frame, framv = Mat(480, 640, CV_8UC3);
-        LibcameraRaw cam_raw;
-        cam_raw.startVideo(argc, argv);
+        LibcameraRaw cam;
+        cam.open(0);
         sleep(2);  
         namedWindow("tst", 1);
         int c = 0;
         while(c != 27) {
-            cam_raw.getFrame(frame, 100);
+            cam.read(frame); //the full reso image for real proc
+            
+            //just for show
             resize(frame, framv, framv.size());
             imshow("tst", framv);
-            c = waitKey(200);
-            //frame = 100;
+            c = waitKey(200);            
             //std::this_thread::sleep_for(std::chrono::milliseconds(33));
         }
 
-        cam_raw.stopVideo();
+        cam.release();
         destroyWindow("tst");
         //imwrite("frm.jpg", frame);
     }

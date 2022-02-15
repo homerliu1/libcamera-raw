@@ -24,7 +24,8 @@ message(STATUS "    include path: ${LIBCAMERA_INCLUDE_DIRS}")
 include_directories(${CMAKE_SOURCE_DIR} ${LIBCAMERA_INCLUDE_DIRS} ${OPENCV_INCLUDE_DIRS})
 
 add_executable(libcamera-raw libcamera_raw.cpp)
-target_link_libraries(libcamera-raw libcamera-app encoders  ${OpenCV_LIBS})
+# target_link_libraries(libcamera-raw libcamera-app encoders  ${OpenCV_LIBS})
+target_link_libraries(libcamera-raw libcamera-app ${OpenCV_LIBS})
 
 set(EXECUTABLES libcamera-raw)
 

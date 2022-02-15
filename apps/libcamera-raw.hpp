@@ -17,7 +17,7 @@ public:
         stream = 0;
     }
 
-    void stopVideo() {        
+    void release() {        
         running.store(false, std::memory_order_release);;
         void *status;
         int ret = pthread_join(event_thread, &status);
@@ -28,7 +28,7 @@ public:
         frm_ready.store(false, std::memory_order_release);   
     }
 
-    bool getFrame(cv::Mat &frame, unsigned int timeout_ms) {
+    bool read(cv::Mat &frame, unsigned int timeout_ms = 500) {
         if(frm_ready.load(std::memory_order_acquire) == false) return false; //wait untill timeout_ms
         cv::Mat frmraw2;
         mtx.lock();
@@ -44,7 +44,7 @@ public:
         return true;
     }
 
-    bool startVideo(int argc, char *argv[]) {
+    bool open(int argc = 0, char *argv[] = NULL) {
 		try	{
         VideoOptions *options = GetOptions();
  		if (options->Parse(argc, argv) == false) {
